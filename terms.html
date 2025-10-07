@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Dark Purple Luxe Casino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #6B2D8E;
+            --secondary-purple: #8B3DAF;
+            --dark-purple: #4A1A66;
+            --gold: #FFD700;
+            --gold-dark: #DAA520;
+            --bg-dark: #1A0B2E;
+            --bg-medium: #2D1B3D;
+            --text-light: #F5F5F5;
+            --text-gray: #C4C4C4;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--dark-purple) 100%);
+            color: var(--text-light);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(26, 11, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .page-header {
+            margin-top: 80px;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(107, 45, 142, 0.3) 0%, rgba(74, 26, 102, 0.3) 100%);
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin: 1rem 0;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid var(--gold);
+            border-radius: 25px;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-home:hover {
+            background: var(--gold);
+            color: var(--dark-purple);
+            transform: translateX(-5px);
+        }
+
+        .terms-content {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .update-date {
+            text-align: center;
+            color: var(--text-gray);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .terms-section {
+            background: rgba(45, 27, 61, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--secondary-purple);
+            margin-bottom: 2rem;
+        }
+
+        .terms-section h2 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .terms-section h3 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .terms-section p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .terms-section ul {
+            color: var(--text-gray);
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .terms-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: rgba(139, 61, 175, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--gold);
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            background: rgba(26, 11, 46, 0.95);
+            padding: 3rem 2rem 1rem;
+            border-top: 3px solid var(--gold);
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--secondary-purple);
+            color: var(--text-gray);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(26, 11, 46, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .page-header {
+                padding: 2rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .terms-content {
+                padding: 3rem 1rem;
+            }
+
+            .terms-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">🎰 Dark Purple Luxe</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="responsible.html">Responsible Gaming</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <a href="index.html" class="back-home">← Back to Home</a>
+        <h1>Terms of Service</h1>
+        <p>Please read these terms carefully before using our platform</p>
+    </div>
+
+    <div class="terms-content">
+        <p class="update-date">Last Updated: October 6, 2025</p>
+
+        <div class="highlight-box">
+            <h3>⚠️ Important Notice</h3>
+            <p>Dark Purple Luxe is a DEMO platform only. We do not offer real-money gambling. All games use virtual credits with no monetary value. By using this platform, you acknowledge that you cannot win or lose real money.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing and using Dark Purple Luxe ("the Platform"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Platform.</p>
+            <p>We reserve the right to modify these terms at any time. Continued use of the Platform after changes constitutes acceptance of the modified terms.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>2. Platform Purpose and Nature</h2>
+            <h3>2.1 Demo Platform Only</h3>
+            <p>Dark Purple Luxe is strictly a demonstration and entertainment platform. We provide:</p>
+            <ul>
+                <li>Free-to-play casino-style games using virtual credits</li>
+                <li>Educational content about gaming mechanics</li>
+                <li>Entertainment without financial risk</li>
+            </ul>
+            
+            <h3>2.2 No Real Money Gambling</h3>
+            <p>The Platform does NOT offer:</p>
+            <ul>
+                <li>Real money gambling or wagering</li>
+                <li>Cash prizes or monetary rewards</li>
+                <li>Cryptocurrency or any form of payment processing</li>
+                <li>Conversion of virtual credits to real money</li>
+            </ul>
+        </div>
+
+        <div class="terms-section">
+            <h2>3. User Eligibility</h2>
+            <p>You must meet the following requirements to use the Platform:</p>
+            <ul>
+                <li>Be at least 18 years of age or the legal age in your jurisdiction</li>
+                <li>Have the legal capacity to enter into binding agreements</li>
+                <li>Not be located in a jurisdiction where access is prohibited</li>
+                <li>Use the Platform for personal, non-commercial entertainment only</li>
+            </ul>
+        </div>
+
+        <div class="terms-section">
+            <h2>4. Virtual Credits and Gameplay</h2>
+            <h3>4.1 Nature of Virtual Credits</h3>
+            <p>All credits, points, and rewards on the Platform are virtual and have no real-world monetary value. They cannot be:</p>
+            <ul>
+                <li>Exchanged for real money or prizes</li>
+                <li>Transferred to other users</li>
+                <li>Sold or traded</li>
+                <li>Redeemed for goods or services</li>
+            </ul>
+            
+            <h3>4.2 Gameplay Rules</h3>
+            <p>Users may:</p>
+            <ul>
+                <li>Play games using virtual credits</li>
+                <li>Reset credits at any time</li>
+                <li>Access unlimited virtual credits</li>
+                <li>Enjoy games purely for entertainment</li>
+            </ul>
+        </div>
+
+        <div class="terms-section">
+            <h2>5. User Conduct</h2>
+            <p>Users agree NOT to:</p>
+            <ul>
+                <li>Use the Platform for any illegal purposes</li>
+                <li>Attempt to hack, exploit, or manipulate the Platform</li>
+                <li>Harass, abuse, or harm other users</li>
+                <li>Misrepresent the Platform as offering real-money gambling</li>
+                <li>Use automated tools, bots, or scripts</li>
+                <li>Violate any applicable laws or regulations</li>
+            </ul>
+        </div>
+
+        <div class="terms-section">
+            <h2>6. Intellectual Property</h2>
+            <p>All content on the Platform, including but not limited to designs, graphics, text, code, and games, is owned by or licensed to Dark Purple Luxe and is protected by copyright and intellectual property laws.</p>
+            <p>Users may not copy, modify, distribute, or create derivative works without explicit written permission.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>7. Disclaimers and Limitations</h2>
+            <h3>7.1 No Warranties</h3>
+            <p>The Platform is provided "as is" without warranties of any kind. We do not guarantee:</p>
+            <ul>
+                <li>Uninterrupted or error-free operation</li>
+                <li>Accuracy or completeness of content</li>
+                <li>Specific results or outcomes</li>
+            </ul>
+            
+            <h3>7.2 Limitation of Liability</h3>
+            <p>To the maximum extent permitted by law, Dark Purple Luxe shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Platform.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>8. Privacy and Data</h2>
+            <p>Your use of the Platform is also governed by our Privacy Policy. We are committed to protecting your privacy and handling data responsibly. Please review our Privacy Policy for detailed information.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>9. Termination</h2>
+            <p>We reserve the right to:</p>
+            <ul>
+                <li>Suspend or terminate access to the Platform at any time</li>
+                <li>Remove or modify content without notice</li>
+                <li>Refuse service to anyone for any reason</li>
+            </ul>
+        </div>
+
+        <div class="terms-section">
+            <h2>10. Responsible Gaming</h2>
+            <p>While our Platform does not involve real money, we promote responsible gaming habits. If you or someone you know has a gambling problem, please seek help from professional organizations. Visit our Responsible Gaming page for resources.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>11. Governing Law</h2>
+            <p>These Terms of Service shall be governed by and construed in accordance with applicable laws. Any disputes arising from these terms shall be resolved through appropriate legal channels.</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>12. Contact Information</h2>
+            <p>For questions or concerns about these Terms of Service, please contact us at:</p>
+            <p>Email: nurlanmammadli2@gmail.com</p>
+            <p>Or visit our <a href="contact.html" style="color: var(--gold);">Contact Page</a></p>
+        </div>
+
+        <div class="highlight-box">
+            <h3>📋 Summary</h3>
+            <p>By using Dark Purple Luxe, you agree that this is a demo platform for entertainment only, with no real-money gambling. You must be 18+ to use the Platform, and you will not engage in prohibited conduct. All virtual credits have no monetary value.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Dark Purple Luxe</h3>
+                <p>Your trusted demo casino platform. Play responsibly, play for fun!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="responsible.html">Responsible Gaming</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Help & Support</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="responsible.html">Get Help</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dark Purple Luxe Casino. All rights reserved. This is a demo platform - No real money gambling.</p>
+            <p>🔞 18+ Entertainment Only | Play Responsibly</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.5rem 2rem';
+            } else {
+                navbar.style.padding = '1rem 2rem';
+            }
+        });
+    </script>
+</body>
+</html>
