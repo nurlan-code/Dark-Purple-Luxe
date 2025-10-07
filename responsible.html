@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsible Gaming - Dark Purple Luxe Casino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #6B2D8E;
+            --secondary-purple: #8B3DAF;
+            --dark-purple: #4A1A66;
+            --gold: #FFD700;
+            --gold-dark: #DAA520;
+            --bg-dark: #1A0B2E;
+            --bg-medium: #2D1B3D;
+            --text-light: #F5F5F5;
+            --text-gray: #C4C4C4;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--dark-purple) 100%);
+            color: var(--text-light);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(26, 11, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .page-header {
+            margin-top: 80px;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(107, 45, 142, 0.3) 0%, rgba(74, 26, 102, 0.3) 100%);
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin: 1rem 0;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid var(--gold);
+            border-radius: 25px;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-home:hover {
+            background: var(--gold);
+            color: var(--dark-purple);
+            transform: translateX(-5px);
+        }
+
+        .responsible-content {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .alert-box {
+            background: rgba(239, 68, 68, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 3px solid #ef4444;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .alert-box h2 {
+            color: #ef4444;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .alert-box p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        .content-section {
+            background: rgba(45, 27, 61, 0.6);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--secondary-purple);
+            margin-bottom: 2rem;
+        }
+
+        .content-section h2 {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .content-section h3 {
+            color: var(--gold);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .content-section p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            color: var(--text-gray);
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-signs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .sign-card {
+            background: rgba(26, 11, 46, 0.6);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #ef4444;
+            transition: all 0.3s ease;
+        }
+
+        .sign-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(239, 68, 68, 0.3);
+        }
+
+        .sign-card h4 {
+            color: #ef4444;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: rgba(26, 11, 46, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--secondary-purple);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-card h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .resource-card p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .resource-link {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--dark-purple);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .self-assessment {
+            background: rgba(139, 61, 175, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--gold);
+            margin: 3rem 0;
+        }
+
+        .self-assessment h3 {
+            color: var(--gold);
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .assessment-question {
+            background: rgba(26, 11, 46, 0.5);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--secondary-purple);
+        }
+
+        .assessment-question p {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .help-cta {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.3) 0%, rgba(220, 38, 38, 0.3) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 3px solid #ef4444;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .help-cta h2 {
+            color: #ef4444;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .help-cta p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .help-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: #ef4444;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .help-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(239, 68, 68, 0.6);
+        }
+
+        .footer {
+            background: rgba(26, 11, 46, 0.95);
+            padding: 3rem 2rem 1rem;
+            border-top: 3px solid var(--gold);
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--secondary-purple);
+            color: var(--text-gray);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(26, 11, 46, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .alert-box h2 {
+                font-size: 1.6rem;
+            }
+
+            .help-cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .page-header {
+                padding: 2rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .responsible-content {
+                padding: 3rem 1rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .alert-box, .help-cta {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .alert-box h2, .help-cta h2 {
+                font-size: 1.4rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">🎰 Dark Purple Luxe</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="responsible.html">Responsible Gaming</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <a href="index.html" class="back-home">← Back to Home</a>
+        <h1>Responsible Gaming</h1>
+        <p>Gaming should be fun, safe, and never harmful</p>
+    </div>
+
+    <div class="responsible-content">
+        <div class="alert-box">
+            <h2>🛑 If You Need Help, Seek It Now</h2>
+            <p>Gambling addiction is a serious issue. If you or someone you know is struggling with gambling problems, professional help is available 24/7.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Our Commitment to Responsible Gaming</h2>
+            <p>Dark Purple Luxe was created specifically to provide entertainment WITHOUT the financial risks of real-money gambling. However, we recognize that even demo gaming should be approached responsibly.</p>
+            <p>While our platform doesn't involve real money, we believe in promoting healthy gaming habits and providing resources for those affected by gambling issues.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Understanding Problem Gambling</h2>
+            <p>Problem gambling is a behavioral addiction that can affect anyone, regardless of age, income, or background. It occurs when gambling becomes uncontrollable and causes significant problems in a person's life.</p>
+            
+            <h3>Warning Signs of Problem Gambling</h3>
+            <div class="warning-signs">
+                <div class="sign-card">
+                    <h4>💰 Financial Issues</h4>
+                    <p>Borrowing money, selling possessions, or experiencing financial difficulties due to gambling</p>
+                </div>
+                <div class="sign-card">
+                    <h4>🕐 Time Obsession</h4>
+                    <p>Spending increasing amounts of time gambling or thinking about gambling</p>
+                </div>
+                <div class="sign-card">
+                    <h4>🤥 Secrecy & Lies</h4>
+                    <p>Lying to family and friends about gambling activities or the extent of losses</p>
+                </div>
+                <div class="sign-card">
+                    <h4>😰 Emotional Distress</h4>
+                    <p>Feeling anxious, depressed, or irritable, especially when trying to stop</p>
+                </div>
+                <div class="sign-card">
+                    <h4>🔄 Chasing Losses</h4>
+                    <p>Continuing to gamble to recover previous losses, leading to bigger losses</p>
+                </div>
+                <div class="sign-card">
+                    <h4>👨‍👩‍👧 Relationship Problems</h4>
+                    <p>Gambling causing conflicts with family, friends, or colleagues</p>
+                </div>
+                <div class="sign-card">
+                    <h4>🚫 Loss of Control</h4>
+                    <p>Unable to stop or reduce gambling despite wanting to</p>
+                </div>
+                <div class="sign-card">
+                    <h4>📉 Neglecting Responsibilities</h4>
+                    <p>Ignoring work, school, or family obligations due to gambling</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="self-assessment">
+            <h3>Quick Self-Assessment</h3>
+            <p style="text-align: center; color: var(--text-gray); margin-bottom: 2rem;">If you answer "yes" to several of these questions, consider seeking professional help:</p>
+            <div class="assessment-question">
+                <p>❓ Have you ever felt the need to bet more and more money?</p>
+            </div>
+            <div class="assessment-question">
+                <p>❓ Have you ever needed to gamble with larger amounts to get the same feeling of excitement?</p>
+            </div>
+            <div class="assessment-question">
+                <p>❓ Have you tried to stop gambling and found you couldn't?</p>
+            </div>
+            <div class="assessment-question">
+                <p>❓ Do you feel restless or irritable when trying to cut down on gambling?</p>
+            </div>
+            <div class="assessment-question">
+                <p>❓ Do you gamble to escape problems or relieve feelings of helplessness or anxiety?</p>
+            </div>
+            <div class="assessment-question">
+                <p>❓ After losing money, do you return to try to win it back?</p>
+            </div>
+            <div class="assessment-question">
+                <p>❓ Have you lied to family members or others to hide your gambling?</p>
+            </div>
+            <div class="assessment-question">
+                <p>❓ Have you committed illegal acts to finance gambling?</p>
+            </div>
+            <div class="assessment-question">
+                <p>❓ Have you jeopardized or lost a relationship, job, or opportunity because of gambling?</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Tips for Responsible Gaming</h2>
+            <p>Whether you're playing on our demo platform or considering any form of gaming, these principles apply:</p>
+            <ul>
+                <li><strong>Set Time Limits:</strong> Decide in advance how long you'll play and stick to it</li>
+                <li><strong>Never Gamble with Real Money You Can't Afford to Lose:</strong> Only use disposable income</li>
+                <li><strong>Don't Chase Losses:</strong> Accept losses as part of the entertainment cost</li>
+                <li><strong>Balance Gaming with Other Activities:</strong> Maintain hobbies, social connections, and responsibilities</li>
+                <li><strong>Never Gamble When Emotional:</strong> Avoid gambling when angry, depressed, or under influence</li>
+                <li><strong>Take Regular Breaks:</strong> Step away frequently to maintain perspective</li>
+                <li><strong>Understand the Odds:</strong> Remember that games are designed for entertainment, not profit</li>
+                <li><strong>Don't Use Gambling to Solve Financial Problems:</strong> It will make them worse</li>
+            </ul>
+        </div>
+
+        <div class="help-cta">
+            <h2>🆘 Need Help Right Now?</h2>
+            <p>If you or someone you know has a gambling problem, help is available 24/7</p>
+            <a href="#resources" class="help-button">View Help Resources</a>
+        </div>
+
+        <div class="content-section" id="resources">
+            <h2>Professional Help Resources</h2>
+            <p>These organizations provide free, confidential support for people affected by gambling problems:</p>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📞</div>
+                    <h3>National Council on Problem Gambling</h3>
+                    <p><strong>Hotline:</strong> 1-800-522-4700</p>
+                    <p>Free, confidential help 24/7 for anyone affected by gambling problems</p>
+                    <a href="https://www.ncpgambling.org" target="_blank" rel="noopener noreferrer" class="resource-link">Visit Website</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🤝</div>
+                    <h3>Gamblers Anonymous</h3>
+                    <p>International fellowship of men and women with a gambling problem</p>
+                    <p>Find local meetings and support groups</p>
+                    <a href="https://www.gamblersanonymous.org" target="_blank" rel="noopener noreferrer" class="resource-link">Find Meetings</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">💬</div>
+                    <h3>Crisis Text Line</h3>
+                    <p><strong>Text:</strong> HOME to 741741</p>
+                    <p>Free crisis counseling via text message, available 24/7</p>
+                    <a href="https://www.crisistextline.org" target="_blank" rel="noopener noreferrer" class="resource-link">Learn More</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🌐</div>
+                    <h3>GamCare (UK)</h3>
+                    <p><strong>Helpline:</strong> 0808 8020 133</p>
+                    <p>Support, information and advice for anyone affected by problem gambling</p>
+                    <a href="https://www.gamcare.org.uk" target="_blank" rel="noopener noreferrer" class="resource-link">Visit Website</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🛡️</div>
+                    <h3>Gambling Therapy</h3>
+                    <p>Free online support and counseling service</p>
+                    <p>Available in multiple languages worldwide</p>
+                    <a href="https://www.gamblingtherapy.org" target="_blank" rel="noopener noreferrer" class="resource-link">Get Support</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">👨‍⚕️</div>
+                    <h3>SAMHSA National Helpline</h3>
+                    <p><strong>Call:</strong> 1-800-662-4357</p>
+                    <p>Substance abuse and mental health services referral</p>
+                    <a href="https://www.samhsa.gov" target="_blank" rel="noopener noreferrer" class="resource-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Support for Family Members</h2>
+            <p>If someone you love has a gambling problem, you're not alone. Here's how you can help:</p>
+            <ul>
+                <li><strong>Educate Yourself:</strong> Learn about gambling addiction and its effects</li>
+                <li><strong>Communicate Openly:</strong> Express your concerns without judgment or criticism</li>
+                <li><strong>Set Boundaries:</strong> Protect yourself and your family financially and emotionally</li>
+                <li><strong>Encourage Treatment:</strong> Support them in seeking professional help</li>
+                <li><strong>Don't Enable:</strong> Avoid paying their gambling debts or making excuses</li>
+                <li><strong>Seek Support for Yourself:</strong> Organizations like Gam-Anon offer support for family members</li>
+                <li><strong>Be Patient:</strong> Recovery is a process that takes time</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Prevention and Awareness</h2>
+            <h3>Why Dark Purple Luxe Exists</h3>
+            <p>Our platform was specifically created to provide entertainment without the financial risks of real-money gambling. We believe that:</p>
+            <ul>
+                <li>Gaming should never cause financial harm</li>
+                <li>People deserve safe entertainment alternatives</li>
+                <li>Education and awareness can prevent gambling problems</li>
+                <li>Demo platforms can satisfy curiosity without risk</li>
+            </ul>
+            
+            <h3>Our Commitment</h3>
+            <p>We will NEVER:</p>
+            <ul>
+                <li>Offer real-money gambling or betting</li>
+                <li>Allow conversion of virtual credits to real money</li>
+                <li>Encourage excessive play or unhealthy gaming habits</li>
+                <li>Target vulnerable individuals</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Youth Protection</h2>
+            <p>Our platform is intended for adults 18+ only. Parents and guardians should:</p>
+            <ul>
+                <li>Monitor children's internet usage</li>
+                <li>Use parental controls and filtering software</li>
+                <li>Educate children about gambling risks</li>
+                <li>Set a positive example regarding gaming and gambling</li>
+                <li>Keep open communication about online activities</li>
+            </ul>
+            <p>If you're a young person concerned about your own or a family member's gambling, reach out to a trusted adult or contact one of the helplines above.</p>
+        </div>
+
+        <div class="alert-box" style="margin-top: 3rem;">
+            <h2>💚 Remember: Help is Always Available</h2>
+            <p>Gambling addiction is treatable. Recovery is possible. You don't have to face this alone. Reaching out for help is a sign of strength, not weakness.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Additional Resources</h2>
+            <ul>
+                <li><strong>National Suicide Prevention Lifeline:</strong> 1-800-273-8255 (If you're in crisis)</li>
+                <li><strong>Problem Gambling Foundation (New Zealand):</strong> 0800 664 262</li>
+                <li><strong>Gambling Help Online (Australia):</strong> 1800 858 858</li>
+                <li><strong>BeGambleAware (UK):</strong> 0808 8020 133</li>
+                <li><strong>Joueurs Anonymes (France):</strong> Find local groups at www.joueurs-anonymes.fr</li>
+            </ul>
+            <p style="margin-top: 2rem;">For additional international resources, please search for "gambling help" + your country name.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Dark Purple Luxe</h3>
+                <p>Your trusted demo casino platform. Play responsibly, play for fun!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="responsible.html">Responsible Gaming</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Help & Support</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="responsible.html">Get Help</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dark Purple Luxe Casino. All rights reserved. This is a demo platform - No real money gambling.</p>
+            <p>🔞 18+ Entertainment Only | Play Responsibly</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.5rem 2rem';
+            } else {
+                navbar.style.padding = '1rem 2rem';
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
