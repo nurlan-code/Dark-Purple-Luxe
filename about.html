@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dark Purple Luxe Casino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #6B2D8E;
+            --secondary-purple: #8B3DAF;
+            --dark-purple: #4A1A66;
+            --gold: #FFD700;
+            --gold-dark: #DAA520;
+            --bg-dark: #1A0B2E;
+            --bg-medium: #2D1B3D;
+            --text-light: #F5F5F5;
+            --text-gray: #C4C4C4;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--dark-purple) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(26, 11, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .page-header {
+            margin-top: 80px;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(107, 45, 142, 0.3) 0%, rgba(74, 26, 102, 0.3) 100%);
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin: 1rem 0;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid var(--gold);
+            border-radius: 25px;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-home:hover {
+            background: var(--gold);
+            color: var(--dark-purple);
+            transform: translateX(-5px);
+        }
+
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .content-card {
+            background: rgba(45, 27, 61, 0.6);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--secondary-purple);
+            margin-bottom: 2rem;
+        }
+
+        .content-card h3 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-card p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .mission-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: rgba(45, 27, 61, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateX(10px);
+            background: rgba(107, 45, 142, 0.3);
+        }
+
+        .value-card h4 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .value-icon {
+            font-size: 2rem;
+        }
+
+        .developer-card {
+            background: linear-gradient(135deg, rgba(107, 45, 142, 0.4) 0%, rgba(74, 26, 102, 0.4) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 3px solid var(--gold);
+            margin-top: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .developer-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .developer-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .dev-icon {
+            font-size: 5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .dev-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .dev-title {
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .dev-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: rgba(26, 11, 46, 0.6);
+            border-radius: 50px;
+            border: 2px solid var(--secondary-purple);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--gold);
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .contact-item a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+
+        .footer {
+            background: rgba(26, 11, 46, 0.95);
+            padding: 3rem 2rem 1rem;
+            border-top: 3px solid var(--gold);
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--secondary-purple);
+            color: var(--text-gray);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(26, 11, 46, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .developer-card {
+                padding: 2rem;
+            }
+
+            .dev-icon {
+                font-size: 3.5rem;
+            }
+
+            .dev-name {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .page-header {
+                padding: 2rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-section {
+                padding: 3rem 1rem;
+            }
+
+            .content-card {
+                padding: 1.5rem;
+            }
+
+            .developer-card {
+                padding: 1.5rem;
+            }
+
+            .developer-card h3 {
+                font-size: 1.8rem;
+            }
+
+            .contact-item {
+                padding: 0.8rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">🎰 Dark Purple Luxe</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="responsible.html">Responsible Gaming</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <a href="index.html" class="back-home">← Back to Home</a>
+        <h1>About Dark Purple Luxe</h1>
+        <p>Learn about our mission and values</p>
+    </div>
+
+    <section class="content-section">
+        <h2 class="section-title">Our Story</h2>
+        
+        <div class="content-card">
+            <h3>🎯 Our Mission</h3>
+            <p>
+                Dark Purple Luxe was created with a singular purpose: to provide a safe, enjoyable alternative to real-money gambling. 
+                We believe that gaming should be about entertainment, not financial risk. Our platform offers all the excitement of casino 
+                games without any of the monetary dangers.
+            </p>
+            <p>
+                In a world where gambling addiction affects millions, we stand as a beacon of responsible entertainment. Our demo platform 
+                allows users to experience the thrill of casino gaming while protecting their finances and wellbeing.
+            </p>
+        </div>
+
+        <div class="content-card">
+            <h3>💡 Why We Exist</h3>
+            <p>
+                Every year, countless individuals lose substantial amounts of money to gambling, leading to financial hardship, relationship 
+                problems, and mental health issues. We recognized the need for a platform that delivers entertainment without these risks.
+            </p>
+            <p>
+                Dark Purple Luxe provides a safe space where people can enjoy casino-style games purely for fun. No deposits, no losses, 
+                no regrets. Just pure, risk-free entertainment that you can enjoy anytime, anywhere.
+            </p>
+        </div>
+
+        <div class="mission-values">
+            <div class="value-card">
+                <h4><span class="value-icon">🛡️</span> Protection First</h4>
+                <p>We prioritize user safety above all else. Our platform ensures zero financial risk while delivering maximum entertainment.</p>
+            </div>
+            <div class="value-card">
+                <h4><span class="value-icon">🎓</span> Education & Awareness</h4>
+                <p>We educate users about responsible gaming and the risks of real-money gambling through our safe demo environment.</p>
+            </div>
+            <div class="value-card">
+                <h4><span class="value-icon">🌟</span> Quality Experience</h4>
+                <p>We deliver premium gaming experiences that rival real casinos, proving entertainment doesn't require financial stakes.</p>
+            </div>
+            <div class="value-card">
+                <h4><span class="value-icon">🤝</span> Community Trust</h4>
+                <p>We build trust through transparency, honesty, and our unwavering commitment to user wellbeing.</p>
+            </div>
+            <div class="value-card">
+                <h4><span class="value-icon">🚀</span> Innovation</h4>
+                <p>We constantly innovate to make demo gaming more engaging, accessible, and enjoyable for everyone.</p>
+            </div>
+            <div class="value-card">
+                <h4><span class="value-icon">💚</span> Social Responsibility</h4>
+                <p>We actively promote responsible gaming and provide resources for those struggling with gambling issues.</p>
+            </div>
+        </div>
+
+        <div class="content-card" style="margin-top: 3rem;">
+            <h3>🎮 What Makes Us Different</h3>
+            <p>
+                Unlike traditional online casinos, we don't want your money. We don't ask for deposits, we don't offer withdrawals, 
+                and we don't have any hidden fees. Our entire platform is built on the principle of free, safe entertainment.
+            </p>
+            <p>
+                Every game on our platform uses virtual credits that have absolutely no real-world value. You can play as much as you 
+                want, reset your credits anytime, and enjoy unlimited gaming sessions without spending a single cent.
+            </p>
+        </div>
+
+        <div class="developer-card">
+            <h3>👨‍💻 Meet the Developer</h3>
+            <div class="developer-info">
+                <div class="dev-icon">💻</div>
+                <div class="dev-name">Nurlan Mammadli</div>
+                <div class="dev-title">Frontend Developer</div>
+                <p style="color: var(--text-gray); max-width: 600px; margin: 1rem auto;">
+                    Passionate about creating beautiful, functional web experiences that make a positive impact. 
+                    Dedicated to building platforms that prioritize user wellbeing and responsible entertainment.
+                </p>
+                <div class="dev-contact">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:nurlanmammadli2@gmail.com">nurlanmammadli2@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💼</span>
+                        <a href="https://www.linkedin.com/in/nurlan-məmmədli-b6a55b308" target="_blank" rel="noopener noreferrer">
+                            LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card" style="margin-top: 3rem;">
+            <h3>🌍 Our Commitment to You</h3>
+            <p>
+                We are committed to maintaining a completely free, safe, and enjoyable platform. We will never introduce real-money 
+                gambling, never sell user data, and never compromise on our core values of protection and responsible entertainment.
+            </p>
+            <p>
+                Your trust is our most valuable asset, and we work every day to earn and maintain it. If you have questions, concerns, 
+                or feedback, we're always here to listen and improve.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Dark Purple Luxe</h3>
+                <p>Your trusted demo casino platform. Play responsibly, play for fun!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="responsible.html">Responsible Gaming</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Help & Support</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="responsible.html">Get Help</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dark Purple Luxe Casino. All rights reserved. This is a demo platform - No real money gambling.</p>
+            <p>🔞 18+ Entertainment Only | Play Responsibly</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.5rem 2rem';
+            } else {
+                navbar.style.padding = '1rem 2rem';
+            }
+        });
+    </script>
+</body>
+</html>
